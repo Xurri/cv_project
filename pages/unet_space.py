@@ -5,7 +5,7 @@ import torchvision.transforms as transforms
 from PIL import Image
 import numpy as np
 
-from models.unet.model_unet_class import UNet
+from model.unet.model_unet_class import UNet
 
 
 # Инициализируем модель и загружаем веса
@@ -15,7 +15,7 @@ from models.unet.model_unet_class import UNet
 script_path = Path(__file__).resolve()
 script_dir = script_path.parent
 # Строим путь к весам модели
-weights_path = script_dir.parent / 'models' / 'unet' / 'model_epoch_31.pth'
+weights_path = script_dir.parent / 'model' / 'unet' / 'model_epoch_31.pth'
 
 # Определяем device для выполнения предсказаний
 # DEVICE = torch.device(
