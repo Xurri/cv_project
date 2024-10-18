@@ -18,7 +18,7 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 # путь к папке c yolov5:
 project_root = os.path.abspath(os.path.join(current_dir, '..', 'yolov5'))
 # путь к весам
-weights_path = os.path.join(project_root, 'models', 'best (1).pt')
+weights_path = os.path.join(current_dir, '..', 'models', 'best (1).pt')
 #def load_yolov5_model(weights_path):
 try:
     model = torch.hub.load(
