@@ -16,16 +16,22 @@ image_path = os.path.join(current_dir, '..', 'images', 'yolo_face_results.png')
 
 print("Project root:", project_root)
 
+# model = torch.hub.load(
+#     # будем работать с локальной моделью в текущей папке
+#     repo_or_dir = project_root,
+#     # непредобученная – будем подставлять свои веса
+#     model = 'custom',
+#     # путь к нашим весам
+#     path = weights_path,
+#     # откуда берем модель – наша локальная
+#     source='local'
+#     )
 model = torch.hub.load(
-    # будем работать с локальной моделью в текущей папке
-    repo_or_dir = project_root,
-    # непредобученная – будем подставлять свои веса
-    model = 'custom',
-    # путь к нашим весам
-    path = weights_path,
-    # откуда берем модель – наша локальная
-    source='local'
-    )
+    repo_or_dir='ultralytics/yolov5',  # Официальный репозиторий YOLOv5 на GitHub
+    model='custom',                    # Используем кастомную модель
+    path=weights_path,   # Путь к весам относительно корня проекта
+    trust_repo=True                    # Доверяем репозиторию (необходимо для кастомных моделей)
+)
 
 # Начиная с какой вероятности отрисовывать детекции
 model.conf = 0.40

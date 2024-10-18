@@ -19,21 +19,28 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, '..', 'yolov5'))
 # путь к весам
 weights_path = os.path.join(current_dir, '..', 'model', 'best (1).pt')
-#def load_yolov5_model(weights_path):
-try:
-    model = torch.hub.load(
-        repo_or_dir = project_root,
-        model = 'custom',
-        path=weights_path, 
-        source='local',
-        device=device
-    )
-    model.conf = 0.3
-    model.eval()
 
-except Exception as e:
-    st.error(f"Ошибка загрузки модели: {e}")
-    st.stop() # Остановка Streamlit приложения
+# try:
+#     model = torch.hub.load(
+#         repo_or_dir = project_root,
+#         model = 'custom',
+#         path=weights_path, 
+#         source='local',
+#         device=device
+#     )
+#     model.conf = 0.3
+#     model.eval()
+
+# except Exception as e:
+#     st.error(f"Ошибка загрузки модели: {e}")
+#     st.stop() # Остановка Streamlit приложения
+
+model = torch.hub.load(
+    repo_or_dir='ultralytics/yolov5',  # Официальный репозиторий YOLOv5 на GitHub
+    model='custom',                    # Используем кастомную модель
+    path=weights_path,   # Путь к весам относительно корня проекта
+    trust_repo=True                    # Доверяем репозиторию (необходимо для кастомных моделей)
+)
 
 # ПАРАМЕТРЫ МОДЕЛИ        
 def display_model_parameters():
