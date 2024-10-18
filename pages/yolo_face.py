@@ -13,6 +13,9 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_dir, '..', 'yolov5'))
 weights_path = os.path.join(current_dir, '..', 'model', 'yolo_face_best.pt')
 image_path = os.path.join(current_dir, '..', 'images', 'yolo_face_results.png')
+
+print("Project root:", project_root)
+
 model = torch.hub.load(
     # будем работать с локальной моделью в текущей папке
     repo_or_dir = project_root,
