@@ -6,9 +6,9 @@ st.title('Добро пожаловать на страницу проекта "
 
 st.markdown("""
 ### Состав команды:
-- Диана 😊
-- Ламберт 🤓 
-- Александр 😎
+- Диана 😊 - https://github.com/Xurri
+- Ламберт 🤓 - https://github.com/LambertBeno
+- Александр 😎 - https://github.com/AlexanderEyfler
 """)
 
 
